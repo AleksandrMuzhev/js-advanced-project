@@ -1,3 +1,4 @@
+import GamePlay from './GamePlay';
 import themes from './themes';
 import cursors from './cursors';
 import { generateTeam } from './generators';
@@ -47,14 +48,14 @@ export default class GameController {
     gameState.currentScore = this.currentScore;
 
     this.stateService.save(gameState);
-    this.gamePlay.showMessage('Game saved successfully!');
+    GamePlay.showMessage('Game saved successfully!');
   }
 
   async loadGame() {
     try {
       const savedState = this.stateService.load();
       if (!savedState) {
-        this.gamePlay.showError('No saved game found!');
+        GamePlay.showError('No saved game found!');
         return;
       }
 
@@ -81,9 +82,9 @@ export default class GameController {
       this.availableMoves = [];
       this.availableAttacks = [];
 
-      this.gamePlay.showMessage('Game loaded successfully!');
+      GamePlay.showMessage('Game loaded successfully!');
     } catch (e) {
-      this.gamePlay.showError('Failed to load game: ' + e.message);
+      GamePlay.showError('Failed to load game: ' + e.message);
     }
   }
 
@@ -232,7 +233,7 @@ export default class GameController {
 
   async onCellClick(index) {
     if (this.currentTurn === 'computer') {
-      this.gamePlay.showError("It's computer's turn!");
+      GamePlay.showError("It's computer's turn!");
       return;
     }
 
@@ -256,7 +257,7 @@ export default class GameController {
         // Перемещение
         await this.performMove(this.selectedCharacter, index);
       } else {
-        this.gamePlay.showError("Invalid action!");
+        GamePlay.showError("Invalid action!");
       }
     }
   }
@@ -361,7 +362,7 @@ export default class GameController {
     );
 
     if (!canAttack) {
-      this.gamePlay.showError("Cannot attack this target!");
+      GamePlay.showError("Cannot attack this target!");
       return;
     }
 
@@ -462,7 +463,7 @@ export default class GameController {
 
   checkGameOver() {
     if (this.playerPositions.length === 0) {
-      this.gamePlay.showMessage(`Game Over! Your score: ${this.currentScore} | Max score: ${this.maxScore}`);
+      GamePlay.showMessage(`Game Over! Your score: ${this.currentScore} | Max score: ${this.maxScore}`);
       this.currentTurn = 'gameover';
       this.gamePlay.setCursor(cursors.auto);
       return true;
@@ -478,7 +479,7 @@ export default class GameController {
 
   nextLevel() {
     if (this.currentLevel >= 4) {
-      this.gamePlay.showMessage(`Congratulations! You won the game! Score: ${this.currentScore}`);
+      GamePlay.showMessage(`Congratulations! You won the game! Score: ${this.currentScore}`);
       this.currentTurn = 'gameover';
       this.gamePlay.setCursor(cursors.auto);
       return;
