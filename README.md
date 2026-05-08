@@ -1,1 +1,74 @@
-[![Tests](https://github.com/AleksandrMuzhev/js-advanced-project/actions/workflows/tests.yml/badge.svg)](https://github.com/AleksandrMuzhev/js-advanced-project/actions/workflows/tests.yml)
+# Retro Game
+
+[![Deploy to GitHub Pages](https://github.com/AleksandrMuzhev/js-advanced-project/actions/workflows/deploy.yml/badge.svg)](https://github.com/AleksandrMuzhev/js-advanced-project/actions/workflows/deploy.yml)
+
+## О проекте
+
+Двухмерная пошаговая игра в стиле фэнтези, где игроку предстоит выставлять своих персонажей против персонажей нечисти. После каждого раунда восстанавливается жизнь уцелевших персонажей игрока и повышается их уровень. Максимальный уровень - 4.
+
+### Особенности
+
+- **Пошаговая тактическая система**: Игрок и компьютер ходят по очереди
+- **Разные классы персонажей**: 
+  - Игрок: Лучник, Мечник, Маг
+  - Противник: Вампир, Восставший из мёртвых, Демон
+- **Уникальные характеристики**: У каждого класса свои показатели атаки, защиты и радиуса движения/атаки
+- **Система уровней**: Персонажи повышают уровень после победы над противником
+- **Сохранение и загрузка**: Прогресс сохраняется в localStorage
+- **4 игровые темы**: Прерия, Пустыня, Арктика, Горы
+
+### Механики
+
+- **Движение**: Персонажи могут двигаться по прямым и диагоналям
+- **Атака**: Расчёт урона по формуле `Math.max(attacker.attack - target.defence, attacker.attack * 0.1)`
+- **Повышение уровня**: Характеристики улучшаются в зависимости от оставшегося здоровья
+- **ИИ противника**: Продуманная стратегия выбора цели
+
+### Технологии
+
+- JavaScript (ES6+)
+- Webpack 5
+- Babel
+- ESLint
+- Jest (тестирование)
+- GitHub Actions (CI/CD)
+
+## Как играть
+
+1. **Выбор персонажа**: Кликните на своего персонажа (жёлтая подсветка)
+2. **Доступные действия**:
+   - Зелёные клетки - доступные для перемещения
+   - Красные клетки - доступные цели для атаки
+3. **Сохранение**: Используйте кнопки Save Game/Load Game
+4. **Новая игра**: Кнопка New Game
+
+## Установка и запуск
+
+```bash
+# Клонирование репозитория
+git clone https://github.com/AleksandrMuzhev/js-advanced-project.git
+
+# Установка зависимостей
+npm install
+
+# Запуск в режиме разработки
+npm start
+
+# Сборка проекта
+npm run build
+
+# Запуск тестов
+npm test
+
+# Деплой на GitHub Pages
+npm run deploy
+```
+
+## Ссылки
+
+-   [GitHub Pages](https://aleksandrmuzhev.github.io/js-advanced-project/)
+-   [Репозиторий](https://github.com/AleksandrMuzhev/js-advanced-project)
+
+## Автор
+
+Александр Мужев
