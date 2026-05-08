@@ -9,7 +9,11 @@ export default class GameStateService {
 
   load() {
     try {
-      return JSON.parse(this.storage.getItem('state'));
+      const state = this.storage.getItem('state');
+      if (!state) {
+        throw new Error('Invalid state');
+      }
+      return JSON.parse(state);
     } catch (e) {
       throw new Error('Invalid state');
     }

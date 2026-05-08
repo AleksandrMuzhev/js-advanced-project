@@ -74,7 +74,6 @@ export default class MovementController {
 
     // Получение всех возможных клеток для движения
     getAvailableMoveCells(character, fromPos, allPositions) {
-        const moveDistance = this.getMoveDistance(character.type);
         const availableCells = [];
 
         for (let i = 0; i < this.boardSize ** 2; i++) {

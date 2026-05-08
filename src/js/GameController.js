@@ -351,7 +351,7 @@ export default class GameController {
     setTimeout(() => this.computerTurn(), 500);
   }
 
-  async performAttack(attacker, target, targetIndex) {
+  async performAttack(attacker, target) {
     // Проверяем, может ли атаковать
     const canAttack = this.movementController.canAttack(
       attacker.character,

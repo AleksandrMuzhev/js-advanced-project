@@ -1,13 +1,4 @@
 import GameStateService from '../src/js/GameStateService';
-import GamePlay from '../src/js/GamePlay';
-
-// Мокаем GamePlay.showError
-jest.mock('../src/js/GamePlay', () => {
-    return jest.fn().mockImplementation(() => ({
-        showError: jest.fn(),
-        showMessage: jest.fn(),
-    }));
-});
 
 describe('GameStateService', () => {
     let storage;

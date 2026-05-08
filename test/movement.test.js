@@ -42,11 +42,12 @@ describe('MovementController', () => {
     });
 
     test('canMove should return false for move too far', () => {
-        const fromPos = 27;
-        const toPos = 35; // на 8 клеток правее
+        const fromPos = 27; // строка 3, колонка 3
+        const toPosTooFar = 52; // строка 6, колонка 4 (дистанция 3 - запрещено)
         const allPositions = [];
 
-        expect(movementController.canMove(bowman, fromPos, toPos, allPositions)).toBe(false);
+        // Дистанция 3 должна быть false для лучника (maxDistance=2)
+        expect(movementController.canMove(bowman, fromPos, toPosTooFar, allPositions)).toBe(false);
     });
 
     test('canMove should return false if target cell is occupied', () => {
