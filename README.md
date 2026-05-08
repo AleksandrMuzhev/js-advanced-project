@@ -1,0 +1,1 @@
+[![Tests](https://github.com/AleksandrMuzhev/js-advanced-project/actions/workflows/tests.yml/badge.svg)](https://github.com/AleksandrMuzhev/js-advanced-project/actions/workflows/tests.yml)
